@@ -4,9 +4,9 @@ import "./globals.css";
 import { cn } from '../lib/utils'
 
 const fontSans = Plus_Jakarta_Sans({
-  subsets: ['latin'], // Note 'subsets' instead of 'subset'
+  subsets: ['latin'], 
   weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-sans', // Make sure this variable name is consistent with your CSS
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
