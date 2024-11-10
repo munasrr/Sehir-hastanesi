@@ -1,8 +1,8 @@
-"use client"
- 
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+'use client';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 import {
   Form,
   FormControl,
@@ -13,27 +13,27 @@ import {
   FormMessage,
 } from '../../components/ui/form';
 import { Input } from '../../components/ui/input';
-import { Button } from "../ui/button";
- 
+import { Button } from '../ui/button';
+
 const formSchema = z.object({
   username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+    message: 'Username must be at least 2 characters.',
   }),
-})
- 
-const PatientForm =() =>{
+});
+
+const PatientForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      username: '',
     },
-  })
- 
+  });
+
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values)
-    }
+    console.log(values);
+  }
 
   return (
     <Form {...form}>
@@ -58,6 +58,6 @@ const PatientForm =() =>{
       </form>
     </Form>
   );
-}
+};
 
-export default PatientForm
+export default PatientForm;
