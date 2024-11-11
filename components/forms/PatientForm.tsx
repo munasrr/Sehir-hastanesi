@@ -10,7 +10,7 @@ import { CustomFormField } from '../CustomFormField';
 export enum FormFieldType {
     INPUT = 'input',
     TEXTAREA = 'textarea',
-    PHONE_INPUT = 'phoneinput',
+    PHONE_INPUT = 'phoneInput',
     DATE_PICKER = 'datepicker',
     SELECT = 'select',
     SKELETON = 'skeleton',
@@ -45,16 +45,30 @@ const PatientForm = () => {
           <p className="text-dark-700">Schedule your first appoinment.</p>
         </section>
         <CustomFormField
-         fieldType={FormFieldType.INPUT} 
-         control={form.control} 
-         name="name"
-         label="full name"
-         placeholder="Anwar"
-         iconsSrc="/assets/icons/user.svg"
-         iconsAlt="user"
-         
-         
-         />
+          fieldType={FormFieldType.INPUT}
+          control={form.control}
+          name="name"
+          label="full name"
+          placeholder="Anwar"
+          iconsSrc="/assets/icons/user.svg"
+          iconsAlt="user"
+        />
+        <CustomFormField
+          fieldType={FormFieldType.INPUT}
+          control={form.control}
+          name="email"
+          label="Email"
+          placeholder="Anwarabdi2090@gmail.com"
+          iconsSrc="/assets/icons/email.svg"
+          iconsAlt="email"
+        />
+        <CustomFormField
+          fieldType={FormFieldType.PHONE_INPUT}
+          control={form.control}
+          name="phone"
+          label="phone number"
+          placeholder="0611228899"
+        />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
