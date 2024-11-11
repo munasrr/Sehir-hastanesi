@@ -7,6 +7,7 @@ import { Form } from '../../components/ui/form';
 import { CustomFormField } from '../CustomFormField';
 import { useState } from 'react';
 import SubmitButton from '../SubmitButton';
+import {UserFormValidation } from '../../lib/validation';
 
 
 
@@ -20,22 +21,20 @@ export enum FormFieldType {
     CHECKBOX = "CHECKBOX",
 }
 
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: 'Username must be at least 2 characters.',
-  }),
-});
 
 const PatientForm = () => {
   const [isLoading,setIsloading] = useState(false)
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+
+  const form = useForm<z.infer<typeof UserFormValidation>>({
+    resolver: zodResolver(UserFormValidation),
     defaultValues: {
-      username: '',
+      name: '',
+      email: '',
+      phone: '',
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  function onSubmit(values: z.infer<typeof UserFormValidation>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
